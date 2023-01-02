@@ -1,0 +1,18 @@
+.Nav_Link {
+    margin: 15px;
+    text-decoration: none;
+}
+
+.Link_Active {
+    text-decoration: underline;
+    color: red;
+
+    &:visited {
+        color: red;
+    }
+}
+
+.Cart {
+    height: 40px;
+    width: 40px;
+}

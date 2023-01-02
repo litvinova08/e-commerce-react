@@ -1,13 +1,19 @@
+import styles from "./Product.module.scss";
+import { NavLink } from "react-router-dom";
 
+const Product = ({ product }) => {
+	return (
+		<NavLink to={`/products/${product.id}`}>
+			<div className={styles.Product}>
+				<h3>{product.name}</h3>
+				<img src={product.img} alt="img" />
+				<p>{product.quantity}</p>
+				<p>{product.price}</p>
+				<p>{product.favourite}</p>
+				<p>{product.variants}</p>
+			</div>
+		</NavLink>
+	);
+};
 
-const Product = ({product}) => {
-  return (
-    <div>
-      <h3>{product.title}</h3>
-      <p>{product.quantity}</p>
-      <img src={product.img} alt="img"/>
-    </div>
-  )
-}
-
-export default Product
+export default Product;
