@@ -1,7 +1,7 @@
 import styles from "./Product.module.scss";
 import { NavLink } from "react-router-dom";
 
-const Product = ({ product }) => {
+const Product = ({ product, quantity }) => {
   return (
     <NavLink to={`/products/${product.id}`}>
       <div className={styles.Product}>

@@ -1,12 +1,15 @@
 import styles from "./Cart.module.scss";
 import Product from "../../components/Product/Product";
-import { countSum } from "../../services/cart";
+import { countSum, removeProduct, getAllCart } from "../../services/cart";
 import { useState, useEffect } from "react";
 
 const Cart = ({ cartProducts }) => {
   const [sum, setSum] = useState(0);
 
-  const clearCart = async () => {};
+  const clearCart = async () => {
+    const cartProducts = await getAllCart();
+    cartProducts.map((product) => removeProduct(product.id));
+  };
 
   useEffect(() => {
     const wrapper = async () => {
@@ -14,7 +17,7 @@ const Cart = ({ cartProducts }) => {
       setSum(sumOfPurchase);
     };
     wrapper();
-  }, []);
+  });
 
   return (
     <div>
@@ -26,7 +29,7 @@ const Cart = ({ cartProducts }) => {
       </div>
       <div className={styles.Div}>
         <p>Amount to pay: ${sum}</p>
-        <button className={styles.Button} onclick={clearCart}>
+        <button className={styles.Button} onClick={clearCart}>
           CLEAR CART
         </button>
       </div>

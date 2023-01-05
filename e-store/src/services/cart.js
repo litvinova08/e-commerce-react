@@ -10,6 +10,7 @@ import {
   increment,
   addDoc,
   setDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firestore";
 
@@ -71,16 +72,23 @@ export const countSum = async () => {
     return { id, ...restOfData };
   });
 
-  const prices = data.map((doc) => {
-    const price = doc.price;
-    const quant = doc.quantity;
-    return price * quant;
-  });
-  const rsl = prices.reduce((a, b) => {
-    return a + b;
-  });
-  return rsl;
+  if (data.length > 0) {
+    const prices = data.map((doc) => {
+      const price = doc.price;
+      const quant = doc.quantity;
+      return price * quant;
+    });
+    const rsl = prices.reduce((a, b) => {
+      return a + b;
+    });
+    return rsl;
+  } else {
+    console.log("no values");
+  }
 };
 
-//remove all products from the cart
-export const cleanCart = async () => {};
+//remove a product from the cart
+export const removeProduct = async (id) => {
+  const docRef = doc(db, "cart", id);
+  await deleteDoc(docRef);
+};
