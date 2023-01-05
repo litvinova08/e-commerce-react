@@ -1,3 +1,5 @@
+import "./index.css";
+
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import "./App.css";
@@ -12,42 +14,42 @@ import Cart from "./containers/Cart/Cart";
 import { getAllCart } from "./services/cart";
 
 function App() {
-	//usestate to get the list of all products in store
-	const [products, setProducts] = useState([]);
+  //usestate to get the list of all products in store
+  const [products, setProducts] = useState([]);
 
-	//useState to get the list of all products in the cart
-	const [cartProducts, setCartProducts] = useState([]);
+  //useState to get the list of all products in the cart
+  const [cartProducts, setCartProducts] = useState([]);
 
-	//use Effect because product cards should be rendered when the page is opened the first time
-	useEffect(() => {
-		const wrapper = async () => {
-			const allProducts = await getAllProducts();
-			setProducts(allProducts);
-			const allCartProducts = await getAllCart();
-			setCartProducts(allCartProducts);
-		};
-		wrapper();
-	}, []);
+  //use Effect because product cards should be rendered when the page is opened the first time
+  useEffect(() => {
+    const wrapper = async () => {
+      const allProducts = await getAllProducts();
+      setProducts(allProducts);
+      const allCartProducts = await getAllCart();
+      setCartProducts(allCartProducts);
+    };
+    wrapper();
+  }, []);
 
-	return (
-		<div className={styles.App}>
-			<BrowserRouter>
-				<Nav />
-				<Routes>
-					<Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
-					<Route path="/" element={<HomePage products={products} />} />
-					<Route
-						path="/products"
-						element={<ProductList products={products} />}
-					/>
-					<Route
-						path="/products/:id"
-						element={<ProductPage products={products} />}
-					/>
-				</Routes>
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <div className={styles.App}>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
+          <Route path="/" element={<HomePage products={products} />} />
+          <Route
+            path="/products"
+            element={<ProductList products={products} />}
+          />
+          <Route
+            path="/products/:id"
+            element={<ProductPage products={products} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

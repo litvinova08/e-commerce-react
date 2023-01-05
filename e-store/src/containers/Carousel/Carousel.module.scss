@@ -1,8 +1,21 @@
 .Carousel {
-	height: 450px;
-	background-color: red;
+  height: 70vh;
+  width: 50vw;
+  background-color: #f0f0f0;
+}
+
+.Slide {
+  width: 50vw;
+  height: 100vh;
 }
 
 .Button {
-	background-color: yellow;
+  background-color: #297373;
+  font-family: "Moon Dance", cursive;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 10px 20px;
+  font-size: 30px;
+  color: #f0f0f0;
 }
