@@ -2,7 +2,6 @@ import "./index.css";
 
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import "./App.css";
 import styles from "./App.module.scss";
 import Product from "./components/Product/Product";
 import HomePage from "./containers/HomePage/HomePage";
@@ -17,16 +16,12 @@ function App() {
   //usestate to get the list of all products in store
   const [products, setProducts] = useState([]);
 
-  //useState to get the list of all products in the cart
-  const [cartProducts, setCartProducts] = useState([]);
-
   //use Effect because product cards should be rendered when the page is opened the first time
   useEffect(() => {
     const wrapper = async () => {
       const allProducts = await getAllProducts();
       setProducts(allProducts);
-      const allCartProducts = await getAllCart();
-      setCartProducts(allCartProducts);
+      console.log("App use effect");
     };
     wrapper();
   }, []);
@@ -36,7 +31,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<HomePage products={products} />} />
           <Route
             path="/products"

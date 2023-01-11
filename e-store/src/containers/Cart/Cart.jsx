@@ -1,23 +1,36 @@
 import styles from "./Cart.module.scss";
 import Product from "../../components/Product/Product";
-import { countSum, removeProduct, getAllCart } from "../../services/cart";
+import { countSum, getAllCart, removeAllCartItems } from "../../services/cart";
 import { useState, useEffect } from "react";
 
-const Cart = ({ cartProducts }) => {
+const Cart = ({}) => {
   const [sum, setSum] = useState(0);
 
+  //useState to get the list of all products in the cart
+  const [cartProducts, setCartProducts] = useState([]);
+
   const clearCart = async () => {
-    const cartProducts = await getAllCart();
-    cartProducts.map((product) => removeProduct(product.id));
+    await removeAllCartItems();
+    const allCartProducts = await getAllCart();
+    setCartProducts(allCartProducts);
+    setSum(0);
+    console.log("cart cleared");
   };
 
   useEffect(() => {
     const wrapper = async () => {
-      const sumOfPurchase = await countSum();
-      setSum(sumOfPurchase);
+      const allCartProducts = await getAllCart();
+      setCartProducts(allCartProducts);
+
+      const sum = allCartProducts.reduce(
+        (acc, product) => acc + product.quantity * product.price,
+        0
+      );
+      setSum(sum);
+      console.log("cart use effect worked");
     };
     wrapper();
-  });
+  }, []);
 
   return (
     <div>

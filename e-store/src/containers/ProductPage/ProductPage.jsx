@@ -21,6 +21,7 @@ const ProductPage = ({ products }) => {
       if (decrementResult) {
         await addProduct(product, id);
         setQuantity(product.quantity);
+        console.log("product page: product added");
       }
     } catch (e) {
       console.log(e.message);
@@ -32,9 +33,10 @@ const ProductPage = ({ products }) => {
       const data = await getProductById(id);
       setProduct(data);
       setQuantity(product.quantity);
+      console.log("prodct page use effect done");
     };
     wrapper();
-  }, [id, product]);
+  }, [id, quantity]); //product deleted
 
   return product ? (
     <div>
