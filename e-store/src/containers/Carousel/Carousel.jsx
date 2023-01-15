@@ -7,10 +7,14 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import Product from "../../components/Product/Product.jsx";
+import CarouselProduct from "../../components/CarouselProduct/CarouselProduct.jsx";
 import styles from "./Carousel.module.scss";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext.jsx";
 
-const Carousel = ({ products }) => {
+const Carousel = () => {
+  const { products1 } = useContext(ProductContext);
+
   return (
     <CarouselProvider
       naturalSlideWidth={30}
@@ -20,11 +24,11 @@ const Carousel = ({ products }) => {
     >
       {/* present in carousel if a product favourite value is TRUE */}
       <Slider className={styles.Carousel}>
-        {products.map((product, i) => {
+        {products1.map((product, i) => {
           if (product.favourite) {
             return (
               <Slide className={styles.Slide} index={i} key={product.id}>
-                <Product product={product} />
+                <CarouselProduct product={product} />
               </Slide>
             );
           }
