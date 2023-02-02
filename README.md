@@ -8,7 +8,7 @@
 
 ## Image
 
-![project screenshot](e-commerce-react\e-store\src\assets\screenshot.png)
+![project screenshot](./e-store/src/assets/screenshot.png)
 
 ## Link to Deployed Version
 
