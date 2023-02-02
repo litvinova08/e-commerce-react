@@ -8,7 +8,7 @@
 
 ## Image
 
-- Put a screenshot of it, or maybe several if you have responsive design
+![project screenshot](e-commerce-react\e-store\src\assets\screenshot.png)
 
 ## Link to Deployed Version
 
