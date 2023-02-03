@@ -1,6 +1,6 @@
 # E-Commerce React Project
 
-![Depfu](https://img.shields.io/depfu/username/repo)
+![Depfu](https://img.shields.io/depfu/litvinova08/e-commerce-react)
 ![GitHub issues](https://img.shields.io/github/issues/username/repo)
 
 ![project screenshot](./e-store/src/assets/screenshot.png)
