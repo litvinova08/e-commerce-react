@@ -1,10 +1,7 @@
 # E-Commerce React Project
 
-## Github badges - optional for now but strongly reccomended later
-
 ![Depfu](https://img.shields.io/depfu/username/repo)
-
-## Image
+![GitHub issues](https://img.shields.io/github/issues/username/repo)
 
 ![project screenshot](./e-store/src/assets/screenshot.png)
 
@@ -36,7 +33,6 @@ Cart stores all products chosed by the User and shows the total amount to be pai
 
 ## Reflection
 
-- What went well?
 - I linked Firestore to my project and splitted the project into containters and components. The most enjoyable part was writing the logic that allows the frontend to communicate with Firestore.
 - My main challenge was implementing the global context allowing to update the number of each product when a user adds products in the Cart.
 
@@ -44,13 +40,12 @@ Cart stores all products chosed by the User and shows the total amount to be pai
 
 - Add dark mode
 - Add an opportunity to choose different variants of the same product and add it into the Cart
--
 
 ### Stay in touch
 
-- Twitter (or alternatives)
-- Portfolio
-- Linkedin
+- Email: ma.litvinova08@gmail.com
+- Portfolio: https://litvinova08.github.io/portfolio-project/
+- Linkedin: https://www.linkedin.com/in/margarita-l-44860b15b/
 
 ### Licence
 
