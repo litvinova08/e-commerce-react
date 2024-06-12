@@ -5,8 +5,9 @@ import { decrementProduct, getProductById } from "../../services/store.js";
 import { addProduct } from "../../services/cart.js";
 import Product from "../../components/Product/Product.jsx";
 import styles from "./ProductPage.module.scss";
+import { ProductContext } from "../../context/ProductContext";
 
-const ProductPage = ({ products }) => {
+const ProductPage = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState({});

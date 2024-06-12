@@ -1,17 +1,18 @@
-import Product from "../../components/Product/Product";
+import PageListProduct from "../../components/PageListProduct/PageListProduct";
 import styles from "./ProductList.module.scss";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
+  const { products1 } = useContext(ProductContext);
+
   return (
-    // <NavLink to={`/products`}>
     <div className={styles.ProductList}>
-      {products &&
-        products.map((product) => {
-          return <Product key={product.id} product={product} />;
+      {products1 &&
+        products1.map((product) => {
+          return <PageListProduct key={product.id} product={product} />;
         })}
     </div>
-    // </NavLink>
   );
 };
 
